@@ -19,7 +19,7 @@ static int  is_integer(const char *s);  /* validate integer string */
 int main(void)
 {
     /* this will run forever until we call exit(0) in select_menu_item() */
-    for(;;) {
+    for(int i = 1; i < 6; i++) {
         main_menu();
     }
     /* not reached */
@@ -97,13 +97,13 @@ static void select_menu_item(int input)
 
 static void print_main_menu(void)
 {
-    printf("\n----------- Main menu -----------\n");
+    printf("\n----------- Main menu ---------------------\n");
     printf("\n"
            "\t\t\t\t\t\t\n"
-           "\t1. Menu item 1\t\t\n"
-           "\t2. Menu item 2\t\t\n"
-           "\t3. Menu item 3\t\t\n"
-           "\t4. Menu item 4\t\t\n"
+           "\t1. Menu item 1: Basic circuit analyser\t\t\n"
+           "\t2. Menu item 2: Signal generator\t\t\n"
+           "\t3. Menu item 3: Signal fequency analyser\t\t\n"
+           "\t4. Menu item 4: Unit converter\t\t\n"
            "\t5. Exit\t\t\t\t\n"
            "\t\t\t\t\t\t\n");
     printf("---------------------------------------------\n");
@@ -112,8 +112,8 @@ static void print_main_menu(void)
 static void go_back_to_main(void)
 {
     char buf[64];
+    printf("\nEnter 'b' or 'B' to go back to main menu: ");
     do {
-        printf("\nEnter 'b' or 'B' to go back to main menu: ");
         if (!fgets(buf, sizeof(buf), stdin)) {
             puts("\nInput error. Exiting.");
             exit(1);
